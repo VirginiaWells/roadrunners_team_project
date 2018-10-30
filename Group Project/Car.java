@@ -9,6 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Car extends Actor
 {
     int obstaclesHit = 0;
+    GreenfootImage dented = new GreenfootImage("whitecardam.png");
+    GreenfootImage damaged = new GreenfootImage("whitecarsevdam.png");
     /**
      * Act - do whatever the Car wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -31,6 +33,12 @@ public class Car extends Actor
         if (obstacle != null) {
             getWorld().removeObject(obstacle);
             obstaclesHit++;
+            if (obstaclesHit == 3) {
+                setImage(dented);
+            }
+            if (obstaclesHit == 7) {
+                setImage(damaged);
+            }
             if (obstaclesHit >= 10) {
                 Greenfoot.stop();
             }

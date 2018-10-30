@@ -23,7 +23,7 @@ public class MyWorld extends World
         bg.scale(getWidth(), getHeight());
         setBackground(bg);
         Car car1 = new Car();
-        addObject (car1, 500, 850);
+        addObject (car1, 500, 500);
         setPaintOrder(Car.class, Bomb.class, Obstacle.class, Line.class, Tree.class, House.class);
     }
     public void act() {
