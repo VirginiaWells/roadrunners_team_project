@@ -38,12 +38,7 @@ public class Car extends Actor
         if (obstacle != null) {
             getWorld().removeObject(obstacle);
             obstaclesHit++;
-            if (obstaclesHit == 3) {
-                setImage(dented);
-            }
-            if (obstaclesHit == 7) {
-                setImage(damaged);
-            }
+            
             if (obstaclesHit >= 10) {
                 Greenfoot.stop();
             }
