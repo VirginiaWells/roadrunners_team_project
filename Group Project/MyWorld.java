@@ -10,7 +10,6 @@ public class MyWorld extends World
 {
     int spawnTimer = 0;
     int houseTimer = 0;
-    int obstacleTimer = 0;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -22,44 +21,64 @@ public class MyWorld extends World
         GreenfootImage bg = new GreenfootImage("backgroundTemp.png");
         bg.scale(getWidth(), getHeight());
         setBackground(bg);
-        Car car1 = new Car();
-        addObject (car1, 500, 500);
-        setPaintOrder(Car.class, Bomb.class, Obstacle.class, Line.class, Tree.class, House.class);
+        addObject (new Line(), 300, 20);
+        addObject (new Line(), 300, 100);
+        addObject (new Line(), 300, 300);
+        addObject (new Line(), 300, 500);
+        addObject (new Line(), 300, 700);
+        addObject (new Line(), 300, 900);
+        addObject (new Line(), 700, 100);
+        addObject (new Line(), 300, 200);
+        addObject (new Line(), 300, 400);
+        addObject (new Line(), 300, 600);
+        addObject (new Line(), 300, 800);
+        addObject (new Line(), 300, 1000);
+        addObject (new Line(), 700, 20);
+        addObject (new Line(), 700, 100);
+        addObject (new Line(), 700, 300);
+        addObject (new Line(), 700, 500);
+        addObject (new Line(), 700, 700);
+        addObject (new Line(), 700, 900);
+        addObject (new Line(), 700, 200);
+        addObject (new Line(), 700, 400);
+        addObject (new Line(), 700, 600);
+        addObject (new Line(), 700, 800);
+        addObject (new Line(), 700, 1000);
+        addObject (new Car(), 600, 500);
+        addObject (new longLine(), 495, 700);
+        addObject (new longLine(), 505, 700);
+        addObject (new longLine(), 495, 200);
+        addObject (new longLine(), 505, 200);
+        setPaintOrder(Car.class, Bomb.class, Cone.class, Obstacle.class, Gas.class, Puddle.class, Line.class, longLine.class, House.class, Tree.class);
     }
     public void act() {
-        Tree tree1 = new Tree();
-        Tree tree2 = new Tree();
-        Line line1 = new Line();
-        Line line2 = new Line();
-        Line line3 = new Line();
-        House house1 = new House();
-        House house2 = new House();
-        Obstacle obstacle1 = new Obstacle();
-        Obstacle obstacle2 = new Obstacle();
-        Obstacle obstacle3 = new Obstacle();
         spawnTimer++;
         houseTimer++;
-        obstacleTimer++;
         if (spawnTimer == 15) {
-            addObject (tree1, Greenfoot.getRandomNumber(120), 0);
-            addObject (tree2, Greenfoot.getRandomNumber(100) + 900, 0); 
+            addObject (new Tree(), Greenfoot.getRandomNumber(120), 0);
+            addObject (new Tree(), Greenfoot.getRandomNumber(100) + 900, 0); 
             spawnTimer = 0;
         }
         if (spawnTimer == 14) {
-            addObject (line1, 300, 0);
-            addObject (line2, 500, 0);
-            addObject (line3, 700, 0);
+            addObject (new Line(), 300, 0);
+            addObject (new Line(), 700, 0);
         }
         if (houseTimer == 40) {
-            addObject (house1, Greenfoot.getRandomNumber(100), 0);
-            addObject (house2, Greenfoot.getRandomNumber(90) + 910, 0);
+            addObject (new House(), Greenfoot.getRandomNumber(100), 0);
+            addObject (new House(), Greenfoot.getRandomNumber(90) + 910, 0);
             houseTimer = 0;
         }
-        if (obstacleTimer == 50) {
-            addObject (obstacle1, Greenfoot.getRandomNumber(900) - 100, 0);
+        if (Greenfoot.getRandomNumber(200) == 100) {
+            addObject (new Obstacle(), Greenfoot.getRandomNumber(600) + 200, 0);
         }
-        if (Greenfoot.getRandomNumber(20) == 5) {
-            addObject (obstacle2, Greenfoot.getRandomNumber(900) - 100, 0);
+        if (Greenfoot.getRandomNumber(200) == 20) {
+            addObject (new Cone(), Greenfoot.getRandomNumber(600) + 200, 0);
+        }
+        if (Greenfoot.getRandomNumber(200) == 50) {
+            addObject (new Puddle(), Greenfoot.getRandomNumber(600) + 200, 0);
+        }
+        if (Greenfoot.getRandomNumber(500) == 1) {
+            addObject (new Gas(), Greenfoot.getRandomNumber(600) + 200, 0);
         }
     }
 }
