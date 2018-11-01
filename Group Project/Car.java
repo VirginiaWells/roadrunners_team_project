@@ -25,16 +25,17 @@ public class Car extends Actor
         if (Greenfoot.isKeyDown("right")) {
             move(10);
         }
-        if (getX() == 180) {
+        if (getX() <= 180) {
             setLocation(getX() + 20, getY());
         }
-        if (getX() == 840) {
+        if (getX() >= 840) {
             setLocation(getX() - 20, getY());
         }
         Actor obstacle = getOneIntersectingObject(Obstacle.class);
         if (obstacle != null) {
             getWorld().removeObject(obstacle);
             obstaclesHit++;
+            Greenfoot.playSound("hittingCone.mp3");
             if (obstaclesHit >= 10) {
                 Greenfoot.stop();
             }
@@ -43,6 +44,7 @@ public class Car extends Actor
         if (cone != null) {
             getWorld().removeObject(cone);
             obstaclesHit++;
+            Greenfoot.playSound("hittingCone.mp3");
             if (obstaclesHit >= 10) {
                 Greenfoot.stop();
             }
@@ -51,6 +53,7 @@ public class Car extends Actor
             Actor puddle = getOneIntersectingObject(Puddle.class);
             if (puddle != null) {
                 puddleCounter = 0;
+                Greenfoot.playSound("puddle.mp3");
             }
         }
         Actor gas = getOneIntersectingObject(Gas.class);
