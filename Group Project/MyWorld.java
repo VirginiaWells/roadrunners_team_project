@@ -54,6 +54,11 @@ public class MyWorld extends World
     public void act() {
         spawnTimer++;
         houseTimer++;
+        GreenfootSound music = new GreenfootSound("runningCar.mp3");
+        if(!music.isPlaying()) {
+                music.play();
+                music.setVolume(5);
+        }
         if (spawnTimer == 15) {
             addObject (new Tree(), Greenfoot.getRandomNumber(120), 0);
             addObject (new Tree(), Greenfoot.getRandomNumber(100) + 900, 0); 
