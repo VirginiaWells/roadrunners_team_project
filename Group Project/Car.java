@@ -11,6 +11,7 @@ public class Car extends Actor
     int obstaclesHit = 0;
     GreenfootImage dented = new GreenfootImage("whitecardam.png");
     GreenfootImage damaged = new GreenfootImage("whitecarsevdam.png");
+    GreenfootImage explode = new GreenfootImage("bombmybombnewbombtimesten.png");
     int puddleCounter = 10;
     int gasMeter = 0;
 
@@ -67,6 +68,10 @@ public class Car extends Actor
             if (gasMeter >= 20) {
                 Greenfoot.stop();
             }
+        }
+        
+        if (obstaclesHit == 1) {
+            
         }
     }    
     public void splishSplash() {
