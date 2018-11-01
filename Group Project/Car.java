@@ -70,9 +70,7 @@ public class Car extends Actor
             }
         }
         
-        if (obstaclesHit == 1) {
-            
-        }
+        carDamage();
     }    
     public void splishSplash() {
         if (puddleCounter == 0) {
@@ -105,6 +103,33 @@ public class Car extends Actor
         }
         if (puddleCounter == 8) {
             setLocation(getX(), 700);
+        }
+    }
+    
+    public void carDamage() {
+        
+        switch (obstaclesHit) {
+            
+            case 1:
+                setImage("whitecardam.png");
+                break;
+                
+            case 2:
+                setImage("whitecardam.png");
+                break;
+                
+            case 3:
+                setImage("whitecardam.png");
+                break;
+                
+            case 4:
+                setImage("whitecardam.png");
+                break;
+                
+            case 5:
+                setImage("whitecardam.png");
+                break;    
+            
         }
     }
 }
