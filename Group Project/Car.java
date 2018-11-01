@@ -65,12 +65,26 @@ public class Car extends Actor
         if (gas != null) {
             getWorld().removeObject(gas);
             gasMeter++;
-            if (gasMeter >= 20) {
-                Greenfoot.stop();
+            if (gasMeter == 1) { //changed to 1 for testing
+                getWorld().addObject (new finishLine(), 508, 0);
             }
         }
+
+         carDamage();
         
-        carDamage();
+        Actor finish = getOneIntersectingObject(finishLine.class);
+        if (finish != null) {
+            getWorld().addObject (new fireworks(), 400, 700);
+            getWorld().addObject (new fireworks(), 800, 800);
+            getWorld().addObject (new fireworks(), 900, 850);
+            getWorld().addObject (new fireworks(), 300, 775);
+            getWorld().addObject (new fireworks(), 200, 800);
+            getWorld().addObject (new fireworks(), 100, 700);
+            getWorld().addObject (new fireworks(), 200, 750);
+            Greenfoot.playSound("finish.mp3");
+            Greenfoot.stop();
+        }
+
     }    
     public void splishSplash() {
         if (puddleCounter == 0) {
