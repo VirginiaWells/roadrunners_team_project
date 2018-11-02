@@ -14,6 +14,10 @@ public class Bomb extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
-    }    
+        moveDown();
+    }
+    
+    public void moveDown() {
+        setLocation(getX(), (getY() + 5));
+    }
 }

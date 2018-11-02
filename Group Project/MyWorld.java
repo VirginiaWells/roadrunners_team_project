@@ -10,6 +10,7 @@ public class MyWorld extends World
 {
     int spawnTimer = 0;
     int houseTimer = 0;
+    
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -49,7 +50,7 @@ public class MyWorld extends World
         addObject (new longLine(), 505, 700);
         addObject (new longLine(), 495, 200);
         addObject (new longLine(), 505, 200);
-        setPaintOrder(Car.class, fireworks.class, finishLine.class, Bomb.class, Cone.class, Obstacle.class, Gas.class, Puddle.class, Line.class, longLine.class, House.class, Tree.class);
+        setPaintOrder(Explosion.class, Car.class, fireworks.class, finishLine.class, Bomb.class, Cone.class, Obstacle.class, Gas.class, Puddle.class, Line.class, longLine.class, House.class, Tree.class);
     }
     public void act() {
         spawnTimer++;
