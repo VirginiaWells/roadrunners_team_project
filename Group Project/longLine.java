@@ -14,6 +14,12 @@ public class longLine extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
-    }    
+        outBounds();
+    }
+    
+    public void outBounds() {
+        if (getY() > 920) {
+            getWorld().removeObject(this);
+        }
+    }
 }

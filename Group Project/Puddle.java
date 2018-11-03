@@ -15,5 +15,12 @@ public class Puddle extends Actor
     public void act() 
     {
        setLocation(getX(), getY() + 5);
-    }    
+       outBounds();
+    }
+    
+    public void outBounds() {
+        if (getY() > 920) {
+            getWorld().removeObject(this);
+        }
+    }
 }

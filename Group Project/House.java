@@ -17,8 +17,16 @@ public class House extends Actor
         image.scale(image.getWidth() - 10, image.getHeight() - 10);
         setImage(image);
     }
+    
     public void act() 
     {
         setLocation(getX(), getY() + 5);
-    }    
+        outBounds();
+    }
+    
+    public void outBounds() {
+        if (getY() > 920) {
+            getWorld().removeObject(this);
+        }
+    }
 }

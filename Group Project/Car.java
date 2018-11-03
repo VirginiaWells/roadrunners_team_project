@@ -159,14 +159,14 @@ public class Car extends Actor
                 break;
                 
             case 5:
-                if (explosionCounter <= 35) {
+                if (explosionCounter <= 20) {
                     getWorld().addObject(new Explosion(), getX(), getY());    
                     explosionCounter++;
                 }
-                else if (explosionCounter > 35 && explosionCounter <= 50) {
+                else if (explosionCounter > 20 && explosionCounter <= 30) {
                     explosionCounter++;
                 }
-                else if (explosionCounter > 50 && explosionCounter <= 75) {
+                else if (explosionCounter > 30 && explosionCounter <= 50) {
                     getWorld().addObject(new Explosion(), getX(), getY());    
                     explosionCounter++;    
                 }
