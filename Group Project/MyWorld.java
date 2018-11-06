@@ -62,9 +62,7 @@ public class MyWorld extends World
                 music.setVolume(5);
         }
         
-        spawnObjects();
-        
-        /*if (spawnTimer == 15) {
+        if (spawnTimer == 15) {
             addObject (new Tree(), Greenfoot.getRandomNumber(120), 0);
             addObject (new Tree(), Greenfoot.getRandomNumber(100) + 900, 0); 
             spawnTimer = 0;
@@ -89,7 +87,7 @@ public class MyWorld extends World
         }
         if (Greenfoot.getRandomNumber(500) == 1) {
             addObject (new Gas(), Greenfoot.getRandomNumber(600) + 200, 0);
-        }*/
+        }
     }
     
     public void spawnObjects() {

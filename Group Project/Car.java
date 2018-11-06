@@ -116,7 +116,7 @@ public class Car extends Actor
             turn(15);
         }
         if (puddleCounter == 8) {
-            setLocation(getX(), 700);
+            setLocation(getX(), 500);
         }
     }
     
