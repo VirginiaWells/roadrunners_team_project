@@ -14,6 +14,13 @@ public class Obstacle extends Actor
      */
     public void act() 
     {
-        move(-5);
-    }    
+        setLocation(getX(), getY() + 5);
+        outBounds();
+    }
+    
+    public void outBounds() {
+        if (getY() > 920 || getX() < 180 || getX() > 840) {
+            getWorld().removeObject(this);
+        }
+    }
 }

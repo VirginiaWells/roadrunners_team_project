@@ -14,11 +14,19 @@ public class House extends Actor
      */
     public House() {
         GreenfootImage image = getImage();
-        image.scale(image.getWidth() - 50, image.getHeight() - 50);
+        image.scale(image.getWidth() - 10, image.getHeight() - 10);
         setImage(image);
     }
+    
     public void act() 
     {
-        move(-5);
-    }    
+        setLocation(getX(), getY() + 5);
+        outBounds();
+    }
+    
+    public void outBounds() {
+        if (getY() > 920) {
+            getWorld().removeObject(this);
+        }
+    }
 }
