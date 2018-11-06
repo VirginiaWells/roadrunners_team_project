@@ -19,7 +19,7 @@ public class Gas extends Actor
     }
     
     public void outBounds() {
-        if (getY() > 920) {
+        if (getY() > 920 || getX() < 180 || getX() > 840) {
             getWorld().removeObject(this);
         }
     }    

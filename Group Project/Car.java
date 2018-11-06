@@ -16,8 +16,9 @@ public class Car extends Actor
     GreenfootImage damaged = new GreenfootImage("whitecarsevdam.png");
     GreenfootImage explode = new GreenfootImage("bombmybombnewbombtimesten.png");
     private int puddleCounter = 10;
-    private static int bombReloadTime = 100;
+    private static int projectileReloadTime = 100;
     private int bombReload = 0;
+    private int missileReload = 0;
     private int gasMeter = 0;
     private int explosionCounter = 0;
 
@@ -28,11 +29,12 @@ public class Car extends Actor
     public void act() 
     {
         puddleCounter++;
-        //hitPuddle();
+        hitPuddle();
         carMove();
         hitBoundary();
         carDamage();
         dropBomb();
+        fireMissile();
         
         Actor obstacle = getOneIntersectingObject(Obstacle.class);
         if (obstacle != null) {
@@ -177,13 +179,25 @@ public class Car extends Actor
     
     public void dropBomb() {
         
-        if (bombReload <= bombReloadTime) {
-            bombReload = bombReload + 1;
+        if (bombReload <= projectileReloadTime) {
+            bombReload++;
         }
         
-        if (Greenfoot.isKeyDown("shift") && bombReload > bombReloadTime) {
+        if (Greenfoot.isKeyDown("shift") && bombReload > projectileReloadTime) {
             getWorld().addObject(new Bomb(), getX(), (getY() + 80));
             bombReload = 0;
+        }
+    }
+    
+    public void fireMissile() {
+        
+        if (missileReload <= projectileReloadTime) {
+            missileReload++;
+        }
+        
+        if (Greenfoot.isKeyDown("space") && missileReload > projectileReloadTime) {
+            getWorld().addObject(new Missile(), getX(), (getY() - 100));
+            missileReload = 0;
         }
     }
 }
